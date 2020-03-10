@@ -29,6 +29,7 @@ def getTrip():
         return
     soup = BeautifulSoup(resp.text, 'html5lib')
     stations = soup.find(id = 'cityHot').ul.find_all('li')
-
+    _btns = stations.find.button
+    print(_btns)
 
 getTrip()
