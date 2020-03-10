@@ -12,7 +12,7 @@ import json
 import numpy as np
 data=np.array([[0.9523,-0.246,00.0855],[0.5639,0.2397,0.9104]])
 print(data.shape)
-
+ 
 
 from bs4 import BeautifulSoup
 import time
@@ -27,3 +27,8 @@ def getTrip():
     if resp.status_code != 200:
         print('URL發生錯誤：' + url)
         return
+    soup = BeautifulSoup(resp.text, 'html5lib')
+    stations = soup.find(id = 'cityHot').ul.find_all('li')
+
+
+getTrip()
